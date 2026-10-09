@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Padimoney: give every naira a job</title>
+  <meta name="description" content="Plan your monthly salary with the 50/30/20 rule, check your spending and see how long a savings goal will take.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <p class="wordmark">Padi<span>money</span></p>
+    <p class="tagline">A friend who talks plainly about money</p>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Your salary just landed. Let's give every naira a job.</h1>
+
+      <label class="salary" for="income">
+        <span class="salary-label">Monthly take-home pay</span>
+        <span class="salary-field">
+          <span class="naira" aria-hidden="true">₦</span>
+          <input id="income" name="income" inputmode="numeric" autocomplete="off" value="250,000" aria-describedby="income-help income-error">
+        </span>
+      </label>
+      <p id="income-help" class="help">After tax and pension, the amount that actually reaches your account.</p>
+      <p id="income-error" class="error" role="alert" hidden></p>
+
+      <div class="split" id="split" aria-live="polite">
+        <div class="bar" role="img" id="bar" aria-label=""></div>
+        <dl class="split-list" id="split-list"></dl>
+      </div>
+      <p class="rule-note">This uses the 50/30/20 rule: half for needs, under a third for wants, and at least a fifth saved before you spend.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="check-title">
+      <h2 id="check-title">Check this month's spending</h2>
+      <p class="lead">Add up what actually went out in each group. Padi will compare it with your plan.</p>
+
+      <form id="spending" class="fields" novalidate>
+        <label>Needs <span class="hint">rent, food, transport, bills</span>
+          <span class="money-input"><span aria-hidden="true">₦</span><input name="needs" inputmode="numeric" value="140,000"></span>
+        </label>
+        <label>Wants <span class="hint">eating out, outings, subscriptions</span>
+          <span class="money-input"><span aria-hidden="true">₦</span><input name="wants" inputmode="numeric" value="85,000"></span>
+        </label>
+        <label>Savings <span class="hint">emergency fund, goals, investments</span>
+          <span class="money-input"><span aria-hidden="true">₦</span><input name="savings" inputmode="numeric" value="25,000"></span>
+        </label>
+      </form>
+
+      <div aria-live="polite">
+        <table class="compare" id="compare">
+          <caption class="visually-hidden">Your plan compared with your spending</caption>
+          <thead><tr><th scope="col">Group</th><th scope="col">Plan</th><th scope="col">Actual</th><th scope="col">Result</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <h3 class="advice-title">Padi says</h3>
+        <ul class="advice" id="advice"></ul>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="goal-title">
+      <h2 id="goal-title">Saving for something?</h2>
+      <p class="lead">Rent, a laptop, school fees, an emergency fund. See how long it takes, or how much to put away.</p>
+
+      <form id="goal" class="fields" novalidate>
+        <label>Goal amount
+          <span class="money-input"><span aria-hidden="true">₦</span><input name="target" inputmode="numeric" value="600,000"></span>
+        </label>
+        <label>Already saved
+          <span class="money-input"><span aria-hidden="true">₦</span><input name="saved" inputmode="numeric" value="50,000"></span>
+        </label>
+        <label>I can save each month
+          <span class="money-input"><span aria-hidden="true">₦</span><input name="monthly" inputmode="numeric" value="50,000"></span>
+        </label>
+        <label>I want it within
+          <span class="money-input suffix"><input name="months" inputmode="numeric" value="9"><span aria-hidden="true">months</span></span>
+        </label>
+      </form>
+
+      <div class="goal-result" id="goal-result" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Padimoney started as a UX case study on financial literacy for Nigerian income earners. This is the working version. <a href="https://txmiloluwa.framer.website">See the design</a> or <a href="https://github.com/Txmiloluwa/padimoney-web">read the code</a>.</p>
+    <p>General guidance only, not financial advice. Nothing you type leaves your browser.</p>
+  </footer>
+</body>
+</html>
